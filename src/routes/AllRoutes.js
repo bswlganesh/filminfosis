@@ -1,5 +1,5 @@
 import {Routes,Route} from 'react-router-dom'
-import {MovieDetails,MovieList,SearchPage} from '../pages'
+import {MovieDetails,MovieList,SearchPage,PageNotFound} from '../pages'
 
 import React from 'react'
 
