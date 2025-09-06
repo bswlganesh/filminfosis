@@ -1,13 +1,67 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+
+main {
+  max-width: 1280px;   /* Prevent content from stretching too wide */
+  width: 90%;          /* Keep it responsive */
+  margin: 0 auto;      /* Center horizontally */
+  padding: 20px;       /* Add breathing space */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* index.css */
+
+/* --- CSS Variables for Theming --- */
+:root {
+  --background-color: #f4f5f7;
+  --card-bg-color: #ffffff;
+  --text-color: #111827;
+  --text-secondary-color: #374151;
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --shadow-hover-color: rgba(0, 0, 0, 0.12);
+  --primary-color: #3b82f6; /* Example primary color */
+}
+
+/* --- Dark Mode Variables --- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #0d1117;
+    --card-bg-color: #161b22;
+    --text-color: #c9d1d9;
+    --text-secondary-color: #8b949e;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --shadow-hover-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* --- CSS Reset --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Global Styles --- */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+main {
+  max-width: 1280px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px 0; /* Adjusted padding */
+  min-height: calc(100vh - 120px); /* Adjust 120px based on header/footer height */
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
