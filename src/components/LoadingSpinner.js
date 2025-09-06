@@ -1,12 +1,11 @@
 import React from 'react';
 import './LoadingSpinner.css';
+import { Riple } from 'react-loading-indicators';
 
 export const LoadingSpinner = () => {
   return (
     <div className="spinner-container">
-      <div className="loading-spinner"></div>
-      {/* Add this text for debugging. You can remove it later. */}
-      <p className="dark:text-white">Loading...</p>
+      <Riple  color="#3189cc" size="medium" text="" textColor="" />
     </div>
   );
 };
