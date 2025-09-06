@@ -3,7 +3,7 @@
 .page-container {
   max-width: 1200px;
   margin: 2rem auto;
-  padding: 2rem;
+  padding: 0rem;
 }
 
 .movie-details-section {
@@ -70,19 +70,74 @@
   margin-right: 0.3rem;
 }
 
-/* Responsive */
+/* Responsive adjustments for tablets and mobiles */
 @media (max-width: 768px) {
   .movie-details-section {
     flex-direction: column;
     text-align: center;
     align-items: center;
+    padding: 10rem; /* reduce padding for small screens */
+    gap: 1.5rem; /* slightly smaller gap */
   }
 
+  .poster-container {
+    max-width: 80%; /* make poster slightly smaller */
+  }
+
+  .movie-poster {
+    height: auto;
+    max-height: 400px; /* limit poster height */
+  }
+
+  .info-container {
+    gap: 0.8rem;
+  }
+
+  .movie-title {
+    font-size: 1.5rem; /* smaller title for mobile */
+  }
+
+  .movie-plot {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 0.8rem;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr; /* single-column grid */
+    gap: 0.8rem;
+  }
+
+  .info-item {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .info-label {
+    font-size: 0.85rem;
+  }
+}
+
+/* Extra-small screens (like <480px) */
+@media (max-width: 480px) {
   .poster-container {
     max-width: 100%;
   }
 
-  .details-grid {
-    grid-template-columns: 1fr;
+  .movie-title {
+    font-size: 1.3rem;
+  }
+
+  .movie-plot {
+    font-size: 0.85rem;
+  }
+
+  .info-item {
+    font-size: 0.8rem;
+  }
+
+  .movie-details-section {
+    padding: 0.8rem;
+    gap: 1rem;
   }
 }

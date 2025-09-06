@@ -20,6 +20,7 @@
   cursor: pointer;
   display: flex;
   flex-direction: column;
+  height: auto;        /* ✅ remove fixed height */
 }
 
 .movie-card:hover {
@@ -30,25 +31,100 @@
 /* Poster */
 .movie-card img {
   width: 100%;
-  height: 320px;
-  object-fit: cover;
+  height: 280px;          /* ✅ uniform poster height */
+  object-fit: cover;      /* ensures it fills without distortion */
 }
 
 /* Info area */
 .movie-card-info {
-  padding: 1rem;
+  flex-grow: 1;               /* fills remaining space */
+  padding: 0.8rem;
   text-align: center;
   background: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .movie-card-info h3 {
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
   font-weight: 600;
-  margin-bottom: 0.3rem;
+  margin: 0.3rem 0;
   color: #222;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;  /* ✅ max 2 lines */
+  -webkit-box-orient: vertical;
 }
 
 .movie-card-info p {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #666;
+  margin: 0;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;  /* ✅ description also max 2 lines */
+  -webkit-box-orient: vertical;
+}
+
+/* ✅ Responsive adjustments */
+@media (max-width: 1024px) {
+  .card {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+    padding: 1rem;
+  }
+
+  .movie-card {
+    height: 360px;  /* ✅ smaller uniform height */
+  }
+
+  .movie-card img {
+    height: 220px;
+  }
+
+  .movie-card-info h3 {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+    padding: 0.5rem;
+  }
+
+  .movie-card {
+    height: 280px; /* ✅ equal small-card height */
+    height: auto; 
+  }
+
+  .movie-card img {
+    height: 170px;
+  }
+
+  .movie-card-info {
+    min-height: 60px;
+    padding: 0.5rem;
+  }
+
+  .movie-card-info h3 {
+    font-size: 0.85rem;
+    -webkit-line-clamp: 2;
+  }
+
+  .movie-card-info p {
+    display: none; /* hide description for mobile tight layout */
+  }
 }
